@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>356318443217-srkkpr9vfi089qi0ea1kf79av08fh39k.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.356318443217-srkkpr9vfi089qi0ea1kf79av08fh39k</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAp5FGx4noJC7-NJD4CCQ0Y9qw3UsOb6T4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>356318443217</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.gayyedfam.DeliveryFeePinas</string>
+	<key>PROJECT_ID</key>
+	<string>deliveryfeepinas</string>
+	<key>STORAGE_BUCKET</key>
+	<string>deliveryfeepinas.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:356318443217:ios:e3c727221549b36514b7f0</string>
+	<key>DATABASE_URL</key>
+	<string>https://deliveryfeepinas.firebaseio.com</string>
+</dict>
+</plist>
