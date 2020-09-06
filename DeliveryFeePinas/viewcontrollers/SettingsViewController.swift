@@ -36,6 +36,9 @@ class SettingsViewController: UIViewController, CurrencySelectionDelegate, Dista
         self.freeDistanceTextController = MDCTextInputControllerFilled(textInput: radiusTextView)
         self.feeTextController = MDCTextInputControllerFilled(textInput: feeTextView)
         
+        self.currencyTextController.floatingPlaceholderNormalColor = .gray
+        self.currencyTextController.floatingPlaceholderActiveColor = .gray
+        
         self.freeDistanceTextController.floatingPlaceholderNormalColor = .gray
         self.freeDistanceTextController.floatingPlaceholderActiveColor = .gray
         
@@ -148,7 +151,9 @@ class SettingsViewController: UIViewController, CurrencySelectionDelegate, Dista
             self.navigationItem.rightBarButtonItem = nil
             
             let alert = UIAlertController(title: "Successfully saved.", message: "", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Done", style: .default, handler: nil))
+            alert.addAction(UIAlertAction(title: "Done", style: .default, handler: { (_) in
+                self.navigationController?.popViewController(animated: true)
+            }))
             self.present(alert, animated: true, completion: nil)
         }
     }

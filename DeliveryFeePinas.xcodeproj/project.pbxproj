@@ -12,6 +12,10 @@
 		CE8E15ED24F3F27C0085FA69 /* DestinationAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8E15EC24F3F27C0085FA69 /* DestinationAddress.swift */; };
 		CE8E15EF24F3F6410085FA69 /* DestinationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8E15EE24F3F6410085FA69 /* DestinationViewController.swift */; };
 		CE8E15F224F3FB510085FA69 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8E15F124F3FB510085FA69 /* ResultViewController.swift */; };
+		CEA4751424F96DD7007D3E3C /* delivery-logo.json in Resources */ = {isa = PBXBuildFile; fileRef = CEA4751324F96DD7007D3E3C /* delivery-logo.json */; };
+		CEA4751624F97875007D3E3C /* map-marker.json in Resources */ = {isa = PBXBuildFile; fileRef = CEA4751524F97875007D3E3C /* map-marker.json */; };
+		CEA4751824F983AA007D3E3C /* scooter.json in Resources */ = {isa = PBXBuildFile; fileRef = CEA4751724F983AA007D3E3C /* scooter.json */; };
+		CEA4751A24FA11FC007D3E3C /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA4751924FA11FC007D3E3C /* AboutViewController.swift */; };
 		CED28EFD24F1511E00F9979B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED28EFC24F1511E00F9979B /* AppDelegate.swift */; };
 		CED28EFF24F1511E00F9979B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED28EFE24F1511E00F9979B /* SceneDelegate.swift */; };
 		CED28F0424F1511E00F9979B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CED28F0224F1511E00F9979B /* Main.storyboard */; };
@@ -41,6 +45,10 @@
 		CE8E15EC24F3F27C0085FA69 /* DestinationAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationAddress.swift; sourceTree = "<group>"; };
 		CE8E15EE24F3F6410085FA69 /* DestinationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationViewController.swift; sourceTree = "<group>"; };
 		CE8E15F124F3FB510085FA69 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		CEA4751324F96DD7007D3E3C /* delivery-logo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "delivery-logo.json"; sourceTree = "<group>"; };
+		CEA4751524F97875007D3E3C /* map-marker.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "map-marker.json"; sourceTree = "<group>"; };
+		CEA4751724F983AA007D3E3C /* scooter.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = scooter.json; sourceTree = "<group>"; };
+		CEA4751924FA11FC007D3E3C /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		CED28EF924F1511E00F9979B /* DeliveryFeePinas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeliveryFeePinas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED28EFC24F1511E00F9979B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CED28EFE24F1511E00F9979B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,8 +111,19 @@
 				CED28F3224F36AFA00F9979B /* SourceViewController.swift */,
 				CE8E15EE24F3F6410085FA69 /* DestinationViewController.swift */,
 				CE8E15F124F3FB510085FA69 /* ResultViewController.swift */,
+				CEA4751924FA11FC007D3E3C /* AboutViewController.swift */,
 			);
 			path = viewcontrollers;
+			sourceTree = "<group>";
+		};
+		CEA4751224F96DB7007D3E3C /* lottie_files */ = {
+			isa = PBXGroup;
+			children = (
+				CEA4751724F983AA007D3E3C /* scooter.json */,
+				CEA4751524F97875007D3E3C /* map-marker.json */,
+				CEA4751324F96DD7007D3E3C /* delivery-logo.json */,
+			);
+			path = lottie_files;
 			sourceTree = "<group>";
 		};
 		CED28EF024F1511E00F9979B = {
@@ -128,6 +147,7 @@
 		CED28EFB24F1511E00F9979B /* DeliveryFeePinas */ = {
 			isa = PBXGroup;
 			children = (
+				CEA4751224F96DB7007D3E3C /* lottie_files */,
 				CE8E15F024F3FB200085FA69 /* viewcontrollers */,
 				CED28F2924F24D8900F9979B /* protocols */,
 				CED28F2624F2499900F9979B /* cells */,
@@ -235,10 +255,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEA4751624F97875007D3E3C /* map-marker.json in Resources */,
 				CED28F0C24F1512000F9979B /* LaunchScreen.storyboard in Resources */,
 				CED28F3124F3610800F9979B /* GoogleService-Info.plist in Resources */,
 				CED28F0924F1512000F9979B /* Assets.xcassets in Resources */,
+				CEA4751424F96DD7007D3E3C /* delivery-logo.json in Resources */,
 				CED28F0424F1511E00F9979B /* Main.storyboard in Resources */,
+				CEA4751824F983AA007D3E3C /* scooter.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +349,7 @@
 				CE8E15ED24F3F27C0085FA69 /* DestinationAddress.swift in Sources */,
 				CED28F1A24F2352900F9979B /* SettingsViewController.swift in Sources */,
 				CED28F2F24F2606D00F9979B /* UserPreference.swift in Sources */,
+				CEA4751A24FA11FC007D3E3C /* AboutViewController.swift in Sources */,
 				CED28F2B24F24DA400F9979B /* CurrencySelectionProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -402,7 +426,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -456,7 +480,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -472,16 +496,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 2YJ6L5RFN2;
 				INFOPLIST_FILE = DeliveryFeePinas/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gayyedfam.DeliveryFeePinas;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -491,16 +517,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 2YJ6L5RFN2;
 				INFOPLIST_FILE = DeliveryFeePinas/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gayyedfam.DeliveryFeePinas;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

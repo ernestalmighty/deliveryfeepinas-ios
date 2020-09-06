@@ -12,4 +12,6 @@ target 'DeliveryFeePinas' do
   pod 'Google-Mobile-Ads-SDK'
   pod 'Firebase/Analytics'
   pod 'GoogleMaps'
+  pod 'lottie-ios'
+  pod 'Alamofire', '~> 5.2'
 end

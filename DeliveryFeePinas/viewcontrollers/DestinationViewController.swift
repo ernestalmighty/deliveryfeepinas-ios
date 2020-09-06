@@ -10,19 +10,31 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 import RealmSwift
+import GoogleMobileAds
 
 class DestinationViewController: UIViewController, GMSAutocompleteViewControllerDelegate {
 
     @IBOutlet weak var destMapView: GMSMapView!
     @IBOutlet weak var destinationLabel: UILabel!
+    @IBOutlet weak var cardView: UIView!
+    @IBOutlet weak var bannerAdView: GADBannerView!
     
     let locationManager = CLLocationManager()
     let realm = try! Realm()
     var hasChanges = false
     var mapMarker: GMSMarker?
+    var countryCode = "PH"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //bannerAdView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerAdView.adUnitID = "ca-app-pub-1965212949581065/2799368283"
+        bannerAdView.rootViewController = self
+        bannerAdView.load(GADRequest())
+        
+        destMapView.layer.cornerRadius = 24.0
+        cardView.layer.cornerRadius = 24.0
         
         destMapView.delegate = self
         
@@ -111,18 +123,21 @@ class DestinationViewController: UIViewController, GMSAutocompleteViewController
                 realmSource!.destLong = Double(mapMarker!.position.longitude)
             }
         } else {
-            let newPreference = DestinationAddress()
-            
-            newPreference.destinationAddress = destinationLabel.text!
-            newPreference.destLat = Double(mapMarker!.position.latitude)
-            newPreference.destLong = Double(mapMarker!.position.longitude)
-            
-            try! realm.write {
-                realm.add(newPreference, update: .modified)
+            if(mapMarker != nil) {
+                let newPreference = DestinationAddress()
+                
+                newPreference.destinationAddress = destinationLabel.text!
+                newPreference.destLat = Double(mapMarker!.position.latitude)
+                newPreference.destLong = Double(mapMarker!.position.longitude)
+                
+                try! realm.write {
+                    realm.add(newPreference, update: .modified)
+                }
             }
         }
         
         self.navigationItem.rightBarButtonItem = nil
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func onAddressTapped(_ sender: Any) {
@@ -141,7 +156,20 @@ class DestinationViewController: UIViewController, GMSAutocompleteViewController
         // Specify a filter.
         let filter = GMSAutocompleteFilter()
         filter.type = .address
-        filter.countries = ["PH"]
+        
+        let preference = realm.objects(UserPreference.self).first
+        if(preference != nil) {
+            let currency = preference!.currency
+            if(currency?.currencyId == "PHP") {
+                filter.countries = ["PH"]
+            } else if (currency?.currencyId == "SGD") {
+                filter.countries = ["SG"]
+            } else if (currency?.currencyId == "USD") {
+                filter.countries = ["US"]
+            }
+        } else {
+            filter.countries = [self.countryCode]
+        }
         autocompleteController.autocompleteFilter = filter
 
         // Display the autocomplete view controller.
@@ -218,9 +246,15 @@ extension DestinationViewController: GMSMapViewDelegate {
         setSaveButton()
         mapMarker?.position = coordinate
         
-        let position = mapMarker?.position
+        if(mapMarker == nil) {
+            mapMarker = GMSMarker(position: coordinate)
+            mapMarker!.title = "Destination"
+            mapMarker!.map = destMapView
+            mapMarker!.isDraggable = true
+        }
+        
         let geoCoder = GMSGeocoder()
-        geoCoder.reverseGeocodeCoordinate(position!, completionHandler: { response, error in
+        geoCoder.reverseGeocodeCoordinate(coordinate, completionHandler: { response, error in
             let gmsAddress: GMSAddress = response!.firstResult()!
             self.destinationLabel.text = gmsAddress.lines?.first!
         })
@@ -232,7 +266,24 @@ extension DestinationViewController: GMSMapViewDelegate {
         let geoCoder = GMSGeocoder()
         geoCoder.reverseGeocodeCoordinate(position!, completionHandler: { response, error in
             let gmsAddress: GMSAddress = response!.firstResult()!
+            
+            if(gmsAddress.country != nil) {
+                self.countryCode = self.locale(for: gmsAddress.country!)
+            }
+            
             self.destinationLabel.text = gmsAddress.lines?.first!
         })
+    }
+    
+    private func locale(for fullCountryName : String) -> String {
+        let locales : String = ""
+        for localeCode in NSLocale.isoCountryCodes {
+            let identifier = NSLocale(localeIdentifier: "en_US")
+            let countryName = identifier.displayName(forKey: NSLocale.Key.countryCode, value: localeCode)
+            if fullCountryName.lowercased() == countryName?.lowercased() {
+                return localeCode
+            }
+        }
+        return locales
     }
 }
