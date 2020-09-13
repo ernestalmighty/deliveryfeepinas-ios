@@ -10,6 +10,8 @@ import UIKit
 import GoogleMaps
 import RealmSwift
 import GoogleMobileAds
+import MaterialComponents.MaterialButtons
+import MaterialComponents.MaterialButtons_Theming
 
 class ResultViewController: UIViewController {
     
@@ -19,6 +21,7 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var distanceChargedLabel: UILabel!
     @IBOutlet weak var distanceFreeLabel: UILabel!
     @IBOutlet weak var cardView: UIView!
+    @IBOutlet weak var shareButton: MDCFloatingButton!
     
     let realm = try! Realm()
     var gmsCoordinateBounds: GMSCoordinateBounds? = nil
@@ -35,6 +38,8 @@ class ResultViewController: UIViewController {
         mapView.layer.cornerRadius = 24.0
         cardView.layer.cornerRadius = 24.0
         
+        shareButton.backgroundColor = UIColor(named: "color_accent")
+        
         calculateRoute()
     }
     
@@ -44,6 +49,16 @@ class ResultViewController: UIViewController {
         } else {
           print("Ad wasn't ready")
         }
+    }
+    
+    @IBAction func onShare(_ sender: Any) {
+        let bounds = UIScreen.main.bounds
+        UIGraphicsBeginImageContextWithOptions(bounds.size, true, 0.0)
+        self.view.drawHierarchy(in: bounds, afterScreenUpdates: false)
+        let img = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        let activityViewController = UIActivityViewController(activityItems: [img!], applicationActivities: nil)
+        self.present(activityViewController, animated: true, completion: nil)
     }
     
     func calculateRoute() {
@@ -99,7 +114,7 @@ class ResultViewController: UIViewController {
         
         gmsCoordinateBounds = GMSCoordinateBounds(coordinate: sourceCoordinate, coordinate: destinationCoordinate)
         
-        let url = NSURL(string: String(format: "https://maps.googleapis.com/maps/api/directions/json?origin=%@,%@&destination=%@,%@&key=%@", String(sourceCoordinate.latitude), String(sourceCoordinate.longitude), String(destinationCoordinate.latitude), String(destinationCoordinate.longitude), "AIzaSyDb3-ku0AOTC_jIWb6AhLBiSLs-d_QNPeE"))
+        let url = NSURL(string: String(format: "https://maps.googleapis.com/maps/api/directions/json?origin=%@,%@&destination=%@,%@&key=%@", String(sourceCoordinate.latitude), String(sourceCoordinate.longitude), String(destinationCoordinate.latitude), String(destinationCoordinate.longitude), "AIzaSyDeZTpbMTY0NEcd4B3a-nu9vOUYSbT6byY"))
         
         let task = URLSession.shared.dataTask(with: url! as URL) { (data, response, error) -> Void in
             
@@ -120,7 +135,7 @@ class ResultViewController: UIViewController {
                             let path = GMSPath.init(fromEncodedPath: routesArray!)
                             let singleLine = GMSPolyline.init(path: path)
                             singleLine.strokeWidth = 4.0
-                            singleLine.strokeColor = .blue
+                            singleLine.strokeColor = .black
                             singleLine.map = self.mapView
                             
                             self.focusMapToShowAllMarkers()

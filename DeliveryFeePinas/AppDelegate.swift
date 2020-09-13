@@ -8,11 +8,11 @@
 
 import UIKit
 import CoreData
-import Firebase
+import FirebaseCore
 import GoogleMaps
 import GooglePlaces
 
-let googleApiKey = "AIzaSyDb3-ku0AOTC_jIWb6AhLBiSLs-d_QNPeE"
+let googleApiKey = "AIzaSyDX43K3V-7QUfC4E7hPCfeSdLDZvoUYqAA"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

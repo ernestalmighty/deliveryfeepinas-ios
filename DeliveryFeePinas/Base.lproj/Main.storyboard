@@ -570,18 +570,27 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9CU-aq-sh4" customClass="GMSMapView">
-                                <rect key="frame" x="16" y="228" width="382" height="560"/>
+                                <rect key="frame" x="16" y="228" width="382" height="580"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t9v-X9-wP5" customClass="MDCFloatingButton">
+                                <rect key="frame" x="365" y="759" width="29" height="29"/>
+                                <state key="normal" image="ic_share"/>
+                                <connections>
+                                    <action selector="onShare:" destination="yoE-0P-FuA" eventType="touchUpInside" id="3rk-Cw-Lt8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="jru-7b-zKW" firstAttribute="top" secondItem="TUJ-e5-PB7" secondAttribute="top" constant="20" id="CPn-ar-lSt"/>
+                            <constraint firstItem="TUJ-e5-PB7" firstAttribute="bottom" secondItem="t9v-X9-wP5" secondAttribute="bottom" constant="20" id="Ddv-5o-0Me"/>
                             <constraint firstItem="TUJ-e5-PB7" firstAttribute="trailing" secondItem="jru-7b-zKW" secondAttribute="trailing" constant="16" id="MHu-oO-LHj"/>
                             <constraint firstItem="9CU-aq-sh4" firstAttribute="top" secondItem="jru-7b-zKW" secondAttribute="bottom" constant="8" id="OOP-mT-XGq"/>
                             <constraint firstItem="9CU-aq-sh4" firstAttribute="leading" secondItem="jru-7b-zKW" secondAttribute="leading" id="dqa-kZ-D1u"/>
                             <constraint firstItem="9CU-aq-sh4" firstAttribute="trailing" secondItem="jru-7b-zKW" secondAttribute="trailing" id="hD7-aX-pYi"/>
-                            <constraint firstItem="TUJ-e5-PB7" firstAttribute="bottom" secondItem="9CU-aq-sh4" secondAttribute="bottom" constant="20" id="lB9-R8-pBp"/>
+                            <constraint firstItem="TUJ-e5-PB7" firstAttribute="bottom" secondItem="9CU-aq-sh4" secondAttribute="bottom" id="lB9-R8-pBp"/>
+                            <constraint firstItem="TUJ-e5-PB7" firstAttribute="trailing" secondItem="t9v-X9-wP5" secondAttribute="trailing" constant="20" id="ol2-6e-tv0"/>
                             <constraint firstItem="jru-7b-zKW" firstAttribute="leading" secondItem="TUJ-e5-PB7" secondAttribute="leading" constant="16" id="sfU-XX-qrk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TUJ-e5-PB7"/>
@@ -592,6 +601,7 @@
                         <outlet property="distanceCoveredLabel" destination="WDa-Hc-e6w" id="dVu-7b-EhB"/>
                         <outlet property="distanceFreeLabel" destination="8Su-uo-A0w" id="pg2-YY-jCA"/>
                         <outlet property="mapView" destination="9CU-aq-sh4" id="r2i-6h-oq6"/>
+                        <outlet property="shareButton" destination="t9v-X9-wP5" id="Xve-WN-Gyu"/>
                         <outlet property="totalAmountLabel" destination="7LI-ZP-dkm" id="elM-X7-j5y"/>
                     </connections>
                 </viewController>
@@ -630,7 +640,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="0.31910228140000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="1" green="0.98431372549019602" blue="0.0" alpha="0.31910228140000002" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="gy6-Bf-Op1" firstAttribute="top" secondItem="HFs-KH-fxZ" secondAttribute="topMargin" constant="10" id="9lu-FU-dv1"/>
@@ -890,5 +900,6 @@
     <color key="tintColor" red="0.19074630737304688" green="0.8609192967414856" blue="0.065427608788013458" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
         <image name="ic_edit_pencil" width="40" height="40"/>
+        <image name="ic_share" width="29" height="29"/>
     </resources>
 </document>
